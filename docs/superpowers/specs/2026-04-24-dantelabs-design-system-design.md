@@ -93,6 +93,8 @@
 | `warning` | `mark` | 주목을 끄는 밝은 톤 |
 | `danger` | `rust` | 강한 브랜드 액센트의 경고 활용 |
 
+**`rust`의 이중 용도 주의**: `rust`는 브랜드 장식 액센트(`accent-brand`)이자 위험 상태(`state-danger`) 두 의미를 동시에 가진다. 에디토리얼·헤더 장식에서의 사용은 브랜드 의도, UI 컨텍스트(에러 메시지·삭제 버튼·경고 보더)에서의 사용은 상태 의도로 구분한다. 한 화면에서 장식용과 상태용이 동시 노출되지 않도록 주의한다 — 필요 시 상태 표시는 아이콘·배경 처리로 맥락을 분명히 한다.
+
 ### 2.5 Color Distribution Rules
 
 - **60/30/10 원칙** — `paper` 60% (배경) · `ink` + `ink-soft` 30% (본문) · 액센트(rust·slate·mark) 10%
@@ -147,7 +149,8 @@
 | `button` | 14px | 1.00 | 600 | Sans · +0.04em · UPPERCASE | 버튼 라벨 |
 
 **UI 규칙**
-- 본문(`body`)이 Serif인 이유: 단테랩스 문학적 브랜드 + 아티클 읽기 경험 강화. 단, 데이터 테이블·폼 입력값·숫자는 Pretendard sans로 오버라이드 허용.
+- 본문(`body`)이 Serif인 이유: 단테랩스 문학적 브랜드 + 아티클 읽기 경험 강화.
+- **Sans 오버라이드 허용 범위**(예외 목록): 데이터 테이블의 셀 값, 폼 입력 필드(input/textarea 내부), 숫자 전용 영역(통계·차트 라벨·금액). 이 경우에만 `--font-sans` + `font-variant-numeric: tabular-nums` 사용. 본문 paragraph·헤딩·아티클 텍스트에는 절대 적용하지 않는다.
 - 한글 본문은 1.65 행간 필수 (한자·조사 가독성)
 - 반응형 축소 규칙 (< 768px 뷰포트):
   - `h1` 56 → 48
@@ -157,21 +160,29 @@
 
 ### 3.4 Font Loading Strategy
 
+**Pretendard는 Google Fonts에서 제공되지 않는다.** jsDelivr CDN의 variable 서브셋 버전을 사용한다 (Korean + Latin 동적 서브셋, 약 140KB).
+
 ```html
+<!-- Google Fonts: 한글 serif, Latin serif, mono -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Source+Serif+4:wght@400;500;600;700&family=Pretendard:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Source+Serif+4:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<!-- jsDelivr: Pretendard variable (dynamic subset) -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" as="style" crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 ```
 
 - `display=swap` — FOIT 방지 (fallback 먼저 노출 → 폰트 로드 후 교체)
-- Pretendard는 `latin + korean` 서브셋만 (번들 크기 ~70% 절감)
+- Pretendard dynamic-subset: 실제 사용 글리프만 동적 로드, 초기 번들 최소화
 - Editorial 전용 폰트(Nanum Myeongjo 800, Playfair italic)는 해당 페이지에서만 지연 로드 고려
+- 자체 호스팅 대안: Pretendard 버전 고정이 필요하면 `npm i pretendard` 후 빌드 파이프라인에서 제공
 
 ### 3.5 Type Pairing Rules
 
 - 한 화면에 Serif는 **2종까지** (예: Nanum Myeongjo heading + Noto Serif KR body)
-- Sans는 **메타 역할로만** 사용 — 본문·헤딩을 Pretendard로 치환하지 않음
-- 숫자 영역(차트 라벨, 통계, 테이블 값)은 Pretendard sans + `font-variant-numeric: tabular-nums`
+- Sans는 **메타 역할 + 위 3.3의 예외 목록(테이블·폼·숫자)** 에서만 사용 — 본문 paragraph·헤딩을 Pretendard로 치환하지 않음
 - italic은 Playfair 인용·장식 한정 (Nanum Myeongjo는 italic 미사용)
 
 ---
@@ -226,12 +237,12 @@
   --state-danger: var(--color-rust);
 
   /* ── TIER 1 · Typography Primitives ─────────── */
-  --font-editorial-ko: 'Nanum Myeongjo', 'Noto Serif KR', serif;
+  --font-editorial-ko: 'Nanum Myeongjo', 'Noto Serif KR', 'Times New Roman', serif;
   --font-editorial-en: 'Playfair Display', 'Times New Roman', serif;
-  --font-heading: 'Noto Serif KR', 'Source Serif 4', serif;
+  --font-heading: 'Noto Serif KR', 'Source Serif 4', Georgia, serif;
   --font-body: 'Noto Serif KR', 'Source Serif 4', Georgia, serif;
-  --font-sans: 'Pretendard', -apple-system, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', Menlo, monospace;
+  --font-sans: 'Pretendard', -apple-system, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
 
   /* Editorial scale */
   --type-hero: 800 128px/1.15 var(--font-editorial-ko);
