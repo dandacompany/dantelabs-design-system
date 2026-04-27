@@ -1,0 +1,47 @@
+{
+  "color": {
+    "paper":        { "$value": "#F7F2E6", "$type": "color" },
+    "ink":          { "$value": "#1a1a1a", "$type": "color" },
+    "rust":         { "$value": "#A0522D", "$type": "color" },
+    "sepia":        { "$value": "#8B6F47", "$type": "color" },
+    "slate":        { "$value": "#435B6C", "$type": "color" },
+    "link":         { "$value": "#5B7F99", "$type": "color" },
+    "link-strong":  { "$value": "#3E5E75", "$type": "color" },
+    "amber":        { "$value": "#C9A857", "$type": "color" },
+    "mark":         { "$value": "#EBC65B", "$type": "color" },
+
+    "paper-soft":   { "$value": "#EDE7D7", "$type": "color" },
+    "paper-strong": { "$value": "#FCF9F0", "$type": "color" },
+    "ink-soft":     { "$value": "#3a3a3a", "$type": "color" },
+    "ink-muted":    { "$value": "#6a6a6a", "$type": "color" }
+  },
+  "border": {
+    "default": { "$value": "rgba(26, 26, 26, 0.12)", "$type": "color" },
+    "strong":  { "$value": "rgba(26, 26, 26, 0.24)", "$type": "color" }
+  },
+  "semantic": {
+    "bg": {
+      "canvas":  { "$value": "{color.paper}",         "$type": "color" },
+      "surface": { "$value": "{color.paper-strong}",  "$type": "color" },
+      "subtle":  { "$value": "{color.paper-soft}",    "$type": "color" }
+    },
+    "text": {
+      "primary":   { "$value": "{color.ink}",          "$type": "color" },
+      "secondary": { "$value": "{color.ink-soft}",     "$type": "color" },
+      "muted":     { "$value": "{color.ink-muted}",    "$type": "color" },
+      "link":      { "$value": "{color.link-strong}",  "$type": "color" },
+      "meta":      { "$value": "{color.sepia}",        "$type": "color" }
+    },
+    "accent": {
+      "brand": { "$value": "{color.rust}",  "$type": "color" },
+      "alt":   { "$value": "{color.slate}", "$type": "color" }
+    },
+    "highlight": { "$value": "{color.mark}", "$type": "color" },
+    "state": {
+      "info":    { "$value": "{color.link-strong}", "$type": "color" },
+      "success": { "$value": "{color.amber}",       "$type": "color" },
+      "warning": { "$value": "{color.mark}",        "$type": "color" },
+      "danger":  { "$value": "{color.rust}",        "$type": "color" }
+    }
+  }
+}

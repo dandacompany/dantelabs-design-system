@@ -1,0 +1,66 @@
+/* ═══════════════════════════════════════════════════════════════
+ * Typography utility classes
+ * 토큰 기반 축약 + letter-spacing / text-transform 보강
+ * Spec §3.2 · §3.3
+ * ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Editorial Track ─────────────────────────────────────── */
+.type-hero {
+  font: var(--type-hero);
+  letter-spacing: -0.02em;
+}
+
+.type-display {
+  font: var(--type-display);
+  letter-spacing: -0.01em;
+}
+
+.type-accent {
+  font: var(--type-accent);
+}
+
+.type-sub {
+  font: var(--type-sub);
+}
+
+.type-meta {
+  font: var(--type-meta);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ─── UI Track ────────────────────────────────────────────── */
+.type-h1 {
+  font: var(--type-h1);
+  letter-spacing: -0.01em;
+}
+
+.type-h2 { font: var(--type-h2); }
+.type-h3 { font: var(--type-h3); }
+.type-h4 { font: var(--type-h4); }
+
+.type-body-lg { font: var(--type-body-lg); }
+.type-body    { font: var(--type-body); }
+.type-body-sm { font: var(--type-body-sm); }
+
+.type-caption { font: var(--type-caption); }
+
+.type-button {
+  font: var(--type-button);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ─── Responsive · 모바일 축소 (spec §3.3) ─────────────── */
+@media (max-width: 767px) {
+  .type-h1 { font-size: 48px; }
+  .type-h2 { font-size: 32px; }
+  .type-h3 { font-size: 24px; }
+  /* body 유지 */
+}
+
+/* ─── Tabular numerics (spec §3.3 예외 목록) ──────────── */
+.num-tabular {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}

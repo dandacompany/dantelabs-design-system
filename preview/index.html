@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>단테랩스 디자인 시스템 v1 · Preview</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Source+Serif+4:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/typography.css">
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg-canvas); color: var(--text-primary); font-family: var(--font-body); }
+    main { max-width: 1200px; margin: 0 auto; padding: 64px 32px; }
+
+    .section { margin-bottom: 72px; padding-bottom: 48px; border-bottom: 1px solid var(--border); }
+    .section:last-child { border-bottom: none; }
+    .section-label { font-family: var(--font-sans); font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-meta); margin-bottom: 6px; }
+    .section-title { font: var(--type-h2); font-family: 'Nanum Myeongjo', serif; color: var(--text-primary); margin: 0 0 24px 0; }
+
+    .palette { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .chip { padding: 16px; border-radius: 8px; border: 1px solid var(--border); }
+    .chip .block { height: 64px; border-radius: 4px; margin-bottom: 10px; border: 1px solid var(--border); }
+    .chip .name { font-family: var(--font-sans); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-primary); }
+    .chip .hex  { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+    .chip .role { font-family: var(--font-body); font-size: 12px; color: var(--text-secondary); margin-top: 6px; line-height: 1.45; }
+
+    .type-row { display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 14px 0; border-bottom: 1px dashed var(--border); align-items: baseline; }
+    .type-row:last-child { border-bottom: none; }
+    .type-row .meta { font-family: var(--font-sans); font-size: 11px; color: var(--text-meta); line-height: 1.5; }
+    .type-row .meta strong { display: block; font-size: 12px; color: var(--text-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px; }
+  </style>
+</head>
+<body>
+  <main>
+
+    <header class="section">
+      <div class="section-label">Dante Labs Design System</div>
+      <h1 class="type-h1" style="font-family: 'Nanum Myeongjo', serif;">단테랩스 디자인 시스템 · v1</h1>
+      <p class="type-body-lg" style="color: var(--text-secondary); max-width: 720px;">
+        컬러 토큰 14개와 타이포 스케일 Editorial 5단 / UI 9단의 실제 렌더링 검증 페이지.
+      </p>
+    </header>
+
+    <section class="section">
+      <div class="section-label">Section 1 · Color Tokens</div>
+      <h2 class="section-title">Core Palette</h2>
+      <div class="palette">
+        <div class="chip"><div class="block" style="background:var(--color-paper)"></div><div class="name">Paper</div><div class="hex">#F7F2E6</div><div class="role">배경 · 전체 캔버스</div></div>
+        <div class="chip"><div class="block" style="background:var(--color-ink)"></div><div class="name">Ink</div><div class="hex">#1a1a1a</div><div class="role">본문 · 기본 텍스트</div></div>
+        <div class="chip"><div class="block" style="background:var(--color-rust)"></div><div class="name">Rust</div><div class="hex">#A0522D</div><div class="role">브랜드 액센트 · danger</div></div>
+        <div class="chip"><div class="block" style="background:var(--color-sepia)"></div><div class="name">Sepia</div><div class="hex">#8B6F47</div><div class="role">서명 · 메타 라벨</div></div>
+        <div class="chip"><div class="block" style="background:var(--color-slate)"></div><div class="name">Slate</div><div class="hex">#435B6C</div><div class="role">감성 블루 베이스</div></div>
+        <div class="chip"><div class="block" style="background:var(--color-link)"></div><div class="name">Link</div><div class="hex">#5B7F99</div><div class="role">기능 블루 (AA Large)</div></div>
+        <div class="chip"><div class="block" style="background:var(--color-link-strong)"></div><div class="name">Link Strong</div><div class="hex">#3E5E75</div><div class="role">본문 링크 (AA body)</div></div>
+        <div class="chip"><div class="block" style="background:var(--color-amber)"></div><div class="name">Amber</div><div class="hex">#C9A857</div><div class="role">감성 옐로우 · success</div></div>
+        <div class="chip"><div class="block" style="background:var(--color-mark)"></div><div class="name">Mark</div><div class="hex">#EBC65B</div><div class="role">하이라이트 · warning</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Section 2 · Editorial Scale</div>
+      <h2 class="section-title">에디토리얼 · 5단 Beat</h2>
+
+      <div class="type-row"><div class="meta"><strong>Hero</strong>128/1.15/800</div><div class="type-hero" style="font-family:'Nanum Myeongjo',serif;">AI를 <span style="color:var(--accent-alt)">오케스트레이트</span>하라</div></div>
+      <div class="type-row"><div class="meta"><strong>Display</strong>96/1.10/700</div><div class="type-display" style="font-family:'Nanum Myeongjo',serif;">질문의 시대는 <span style="color:var(--accent-brand)">끝났다.</span></div></div>
+      <div class="type-row"><div class="meta"><strong>Accent</strong>64/1.20/700</div><div class="type-accent" style="font-family:'Nanum Myeongjo',serif;"><span style="color:var(--accent-brand)">AI를</span> 연주하라</div></div>
+      <div class="type-row"><div class="meta"><strong>Sub</strong>32/1.40/400</div><div class="type-sub"><a href="#" style="color:var(--text-link); text-decoration:underline; text-underline-offset:4px;">dante-labs.com</a>에서 시작</div></div>
+      <div class="type-row"><div class="meta"><strong>Meta</strong>18/1.50/500 sans</div><div class="type-meta" style="color:var(--text-meta)">— DANTE LABS · 2026 · SEASON 02</div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Section 3 · UI Scale</div>
+      <h2 class="section-title">UI · 9단 Component Scale</h2>
+
+      <div class="type-row"><div class="meta"><strong>h1</strong>56/1.20/700</div><div class="type-h1">AI를 오케스트레이트하라</div></div>
+      <div class="type-row"><div class="meta"><strong>h2</strong>40/1.25/700</div><div class="type-h2">에이전틱 데이터 사이언스</div></div>
+      <div class="type-row"><div class="meta"><strong>h3</strong>28/1.30/600</div><div class="type-h3">n8n과 Claude로 자동화 파이프라인 구축하기</div></div>
+      <div class="type-row"><div class="meta"><strong>h4</strong>22/1.35/600</div><div class="type-h4">세션 1. 기본 개념 정리</div></div>
+      <div class="type-row"><div class="meta"><strong>body-lg</strong>20/1.65/400</div><div class="type-body-lg">질문하는 시대는 끝나가고 있다. 이제는 답을 <a href="#" style="color:var(--text-link)">조합하고 연주하는</a> 기술이 필요하다.</div></div>
+      <div class="type-row"><div class="meta"><strong>body</strong>16/1.65/400</div><div class="type-body">단테랩스는 AI 자동화와 <span style="background:var(--highlight); padding:0 4px;">에이전틱 데이터 사이언스</span>를 다루는 실무 중심의 교육·연구 랩입니다.</div></div>
+      <div class="type-row"><div class="meta"><strong>body-sm</strong>14/1.50/400</div><div class="type-body-sm" style="color:var(--text-meta)">작성일 2026년 4월 24일 · 읽는 시간 6분 · 카테고리 Agentic AI</div></div>
+      <div class="type-row"><div class="meta"><strong>caption</strong>13/1.40/500 sans</div><div class="type-caption" style="color:var(--text-meta)">CAPTION · 이미지 출처 · 메타 정보</div></div>
+      <div class="type-row"><div class="meta"><strong>button</strong>14/1.00/600 sans</div><div><button class="type-button" style="background:var(--color-slate); color:var(--bg-canvas); border:0; padding:12px 24px; border-radius:4px; cursor:pointer;">시작하기 →</button></div></div>
+    </section>
+
+    <footer style="padding-top:24px; color:var(--text-meta); font-family:var(--font-sans); font-size:12px;">
+      단테랩스 디자인 시스템 v1.0.0 · 2026-04-24
+    </footer>
+  </main>
+</body>
+</html>

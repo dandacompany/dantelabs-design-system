@@ -1,0 +1,6 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "name": "dantelabs-design-system",
+  "version": "1.0.0",
+  "includes": ["./color.json", "./typography.json"]
+}

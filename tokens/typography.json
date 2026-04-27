@@ -1,0 +1,117 @@
+{
+  "font": {
+    "editorial-ko": {
+      "$value": ["Nanum Myeongjo", "Noto Serif KR", "Times New Roman", "serif"],
+      "$type": "fontFamily"
+    },
+    "editorial-en": {
+      "$value": ["Playfair Display", "Times New Roman", "serif"],
+      "$type": "fontFamily"
+    },
+    "heading": {
+      "$value": ["Noto Serif KR", "Source Serif 4", "Georgia", "serif"],
+      "$type": "fontFamily"
+    },
+    "body": {
+      "$value": ["Noto Serif KR", "Source Serif 4", "Georgia", "serif"],
+      "$type": "fontFamily"
+    },
+    "sans": {
+      "$value": ["Pretendard", "-apple-system", "Segoe UI", "system-ui", "sans-serif"],
+      "$type": "fontFamily"
+    },
+    "mono": {
+      "$value": ["JetBrains Mono", "Menlo", "Consolas", "monospace"],
+      "$type": "fontFamily"
+    }
+  },
+  "editorial": {
+    "hero": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.editorial-ko}",
+        "fontWeight": 800,
+        "fontSize": "128px",
+        "lineHeight": 1.15,
+        "letterSpacing": "-0.02em"
+      }
+    },
+    "display": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.editorial-ko}",
+        "fontWeight": 700,
+        "fontSize": "96px",
+        "lineHeight": 1.10,
+        "letterSpacing": "-0.01em"
+      }
+    },
+    "accent": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.editorial-ko}",
+        "fontWeight": 700,
+        "fontSize": "64px",
+        "lineHeight": 1.20
+      }
+    },
+    "sub": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.body}",
+        "fontWeight": 400,
+        "fontSize": "32px",
+        "lineHeight": 1.40
+      }
+    },
+    "meta": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.sans}",
+        "fontWeight": 500,
+        "fontSize": "18px",
+        "lineHeight": 1.50,
+        "letterSpacing": "0.16em",
+        "textTransform": "uppercase"
+      }
+    }
+  },
+  "ui": {
+    "h1": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.heading}", "fontWeight": 700, "fontSize": "56px", "lineHeight": 1.20, "letterSpacing": "-0.01em" }
+    },
+    "h2": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.heading}", "fontWeight": 700, "fontSize": "40px", "lineHeight": 1.25 }
+    },
+    "h3": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.heading}", "fontWeight": 600, "fontSize": "28px", "lineHeight": 1.30 }
+    },
+    "h4": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.heading}", "fontWeight": 600, "fontSize": "22px", "lineHeight": 1.35 }
+    },
+    "body-lg": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.body}", "fontWeight": 400, "fontSize": "20px", "lineHeight": 1.65 }
+    },
+    "body": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.body}", "fontWeight": 400, "fontSize": "16px", "lineHeight": 1.65 }
+    },
+    "body-sm": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.body}", "fontWeight": 400, "fontSize": "14px", "lineHeight": 1.50 }
+    },
+    "caption": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.sans}", "fontWeight": 500, "fontSize": "13px", "lineHeight": 1.40 }
+    },
+    "button": {
+      "$type": "typography",
+      "$value": { "fontFamily": "{font.sans}", "fontWeight": 600, "fontSize": "14px", "lineHeight": 1.00, "letterSpacing": "0.04em", "textTransform": "uppercase" }
+    }
+  }
+}
