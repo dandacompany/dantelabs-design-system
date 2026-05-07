@@ -51,6 +51,10 @@
 
 - [color.md](color.md) · 컬러 토큰 전체·명암비
 - [typography.md](typography.md) · 타이포 스케일·사용 예
+- [spacing.md](spacing.md) · 9스텝 spacing
+- [radius.md](radius.md) · 5개 radius
+- [shadow.md](shadow.md) · editorial emboss shadow
+- [motion.md](motion.md) · editorial paper motion
 - [usage-rules.md](usage-rules.md) · pairing·접근성·Do/Don't
 
 ## 미리보기
@@ -70,9 +74,9 @@
 - BREAKING → major · 토큰 추가·의미 확장 → minor · HEX 미세 조정 → patch
 - 현재: **v1.0.0**
 
-## v2 이후
+## v2 이후 (현 버전 v1.1.0에서 진행)
 
-- Spacing / radius / shadow / motion 토큰
+- ✅ Spacing / radius / shadow / motion 토큰 (v1.1.0)
 - 컴포넌트 라이브러리
 - Dark mode 매핑
 - Figma 라이브러리 ([figma/library-plan.md](../figma/library-plan.md))

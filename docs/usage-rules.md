@@ -68,3 +68,21 @@ v1은 **light only**. 다크 매핑은 v2에서 semantic 재정의로 확장.
   font-family: var(--font-sans);
 }
 ```
+
+---
+
+## v2: Spacing · Radius · Shadow · Motion
+
+자세한 사용 규칙은 각 토큰 문서 참조:
+
+- [spacing.md](spacing.md) — 9스텝, 듀얼 네이밍
+- [radius.md](radius.md) — 8px 상한, full은 pill 예외
+- [shadow.md](shadow.md) — editorial emboss, ink-tint 전용
+- [motion.md](motion.md) — editorial paper, reduce-motion 자동 대응
+
+### 핵심 페어링·금지
+
+- shadow와 `border: 1px solid border.default` 동시 사용 금지 (헤어라인 인셋이 중복)
+- shadow는 ink-tint 전용 — rust/sepia/slate hex 그림자 금지
+- radius 8px 초과 금지 — `--radius-full`은 pill·circle 명시 예외
+- motion은 스프링·바운스 금지, `transition: all`은 hover/focus 한정
