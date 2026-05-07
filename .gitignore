@@ -6,3 +6,6 @@ dist/
 .env
 .env.local
 *.log
+
+# Working folders (clipboard captures, drafts)
+디자인시스템_이미지_정리본/

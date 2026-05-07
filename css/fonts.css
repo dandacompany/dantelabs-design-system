@@ -7,10 +7,16 @@
  * ═══════════════════════════════════════════════════════════════ */
 
 /* Google Fonts · serif & mono */
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Source+Serif+4:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400&family=Source+Serif+4:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
 /* jsDelivr · Pretendard variable (dynamic subset) */
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+
+/* ─── Self-host 대안 ─────────────────────────────────────
+ * fonts-local.css 로 교체하면 CDN 없이 완전 자체 호스팅 가능.
+ * 839개 @font-face (unicode-range 완전 매핑, 모든 weight 포함).
+ * fonts/ 디렉토리와 함께 배포 필요.
+ * ─────────────────────────────────────────────────────── */
 
 /* ─── HTML 레이어 최적 로딩 (권장) ────────────────────────
  * 이 파일을 import하는 대신, HTML <head>에서 직접 link + preconnect 권장.

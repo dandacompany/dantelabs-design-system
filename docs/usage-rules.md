@@ -4,11 +4,11 @@
 
 ## 60/30/10 컬러 분배
 
-| 비율 | 역할 | 토큰 |
-|---|---|---|
-| **60%** | 배경 | `paper` |
-| **30%** | 본문·텍스트 | `ink`, `ink-soft` |
-| **10%** | 액센트 | `rust`, `slate`, `mark`, `amber` |
+| 비율    | 역할        | 토큰                             |
+| ------- | ----------- | -------------------------------- |
+| **60%** | 배경        | `paper`                          |
+| **30%** | 본문·텍스트 | `ink`, `ink-soft`                |
+| **10%** | 액센트      | `rust`, `slate`, `mark`, `amber` |
 
 액센트 10%를 여러 토큰이 나눠 쓰므로 한 토큰이 1–3%를 넘지 않도록.
 
@@ -41,17 +41,30 @@ v1은 **light only**. 다크 매핑은 v2에서 semantic 재정의로 확장.
 ### ✓ DO
 
 ```css
-.article-body { color: var(--text-primary); background: var(--bg-canvas); }
-.cta-link     { color: var(--text-link); /* = link-strong */ }
-.hero-word    { color: var(--accent-brand); /* = rust */ font: var(--type-hero); }
+.article-body {
+  color: var(--text-primary);
+  background: var(--bg-canvas);
+}
+.cta-link {
+  color: var(--text-link); /* = link-strong */
+}
+.hero-word {
+  color: var(--accent-brand); /* = rust */
+  font: var(--type-hero);
+}
 ```
 
 ### ✗ DON'T
 
 ```css
 /* 본문 링크를 link(약한 대비)로 사용 금지 */
-.body-link { color: var(--color-link); font-size: 16px; }
+.body-link {
+  color: var(--color-link);
+  font-size: 16px;
+}
 
 /* 본문을 Pretendard sans로 치환 금지 */
-.article-body { font-family: var(--font-sans); }
+.article-body {
+  font-family: var(--font-sans);
+}
 ```

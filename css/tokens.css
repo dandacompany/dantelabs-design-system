@@ -5,18 +5,18 @@
 
 :root {
   /* ─── TIER 1 · Primitive Color Tokens ─────────────────────── */
-  --color-paper: #F7F2E6;
+  --color-paper: #f7f2e6;
   --color-ink: #1a1a1a;
-  --color-rust: #A0522D;
-  --color-sepia: #8B6F47;
-  --color-slate: #435B6C;
-  --color-link: #5B7F99;
-  --color-link-strong: #3E5E75;
-  --color-amber: #C9A857;
-  --color-mark: #EBC65B;
+  --color-rust: #a0522d;
+  --color-sepia: #8b6f47;
+  --color-slate: #435b6c;
+  --color-link: #5b7f99;
+  --color-link-strong: #3e5e75;
+  --color-amber: #c9a857;
+  --color-mark: #ebc65b;
 
-  --color-paper-soft: #EDE7D7;
-  --color-paper-strong: #FCF9F0;
+  --color-paper-soft: #ede7d7;
+  --color-paper-strong: #fcf9f0;
   --color-ink-soft: #3a3a3a;
   --color-ink-muted: #6a6a6a;
 
@@ -44,28 +44,29 @@
   --state-danger: var(--color-rust);
 
   /* ─── TIER 1 · Typography Primitives ──────────────────────── */
-  --font-editorial-ko: 'Nanum Myeongjo', 'Noto Serif KR', 'Times New Roman', serif;
-  --font-editorial-en: 'Playfair Display', 'Times New Roman', serif;
-  --font-heading: 'Noto Serif KR', 'Source Serif 4', Georgia, serif;
-  --font-body: 'Noto Serif KR', 'Source Serif 4', Georgia, serif;
-  --font-sans: 'Pretendard', -apple-system, 'Segoe UI', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+  --font-editorial-ko:
+    "Nanum Myeongjo", "Noto Serif KR", "Times New Roman", serif;
+  --font-editorial-en: "Playfair Display", "Times New Roman", serif;
+  --font-heading: "Noto Serif KR", "Source Serif 4", Georgia, serif;
+  --font-body: "Noto Serif KR", "Source Serif 4", Georgia, serif;
+  --font-sans: "Pretendard", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", Menlo, Consolas, monospace;
 
   /* ─── Editorial Scale (5 levels · spec §3.2) ──────────────── */
-  --type-hero:    800 128px/1.15 var(--font-editorial-ko);
-  --type-display: 700  96px/1.10 var(--font-editorial-ko);
-  --type-accent:  700  64px/1.20 var(--font-editorial-ko);
-  --type-sub:     400  32px/1.40 var(--font-body);
-  --type-meta:    500  18px/1.50 var(--font-sans);
+  --type-hero: 800 128px/1.15 var(--font-editorial-ko);
+  --type-display: 700 96px/1.1 var(--font-editorial-ko);
+  --type-accent: 700 64px/1.2 var(--font-editorial-ko);
+  --type-sub: 400 32px/1.4 var(--font-body);
+  --type-meta: 500 18px/1.5 var(--font-sans);
 
   /* ─── UI Scale (9 levels · spec §3.3) ─────────────────────── */
-  --type-h1:      700 56px/1.20 var(--font-heading);
-  --type-h2:      700 40px/1.25 var(--font-heading);
-  --type-h3:      600 28px/1.30 var(--font-heading);
-  --type-h4:      600 22px/1.35 var(--font-heading);
+  --type-h1: 700 56px/1.2 var(--font-heading);
+  --type-h2: 700 40px/1.25 var(--font-heading);
+  --type-h3: 600 28px/1.3 var(--font-heading);
+  --type-h4: 600 22px/1.35 var(--font-heading);
   --type-body-lg: 400 20px/1.65 var(--font-body);
-  --type-body:    400 16px/1.65 var(--font-body);
-  --type-body-sm: 400 14px/1.50 var(--font-body);
-  --type-caption: 500 13px/1.40 var(--font-sans);
-  --type-button:  600 14px/1.00 var(--font-sans);
+  --type-body: 400 16px/1.65 var(--font-body);
+  --type-body-sm: 400 14px/1.5 var(--font-body);
+  --type-caption: 500 13px/1.4 var(--font-sans);
+  --type-button: 600 14px/1 var(--font-sans);
 }

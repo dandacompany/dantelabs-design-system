@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI 단테랩스 · Thumbnail v1 (F&B Agent)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@400;500;600;700;900&family=Playfair+Display:wght@400;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="../../css/tokens.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+        background: var(--bg-canvas, #f7f2e6);
+        font-family: "Pretendard Variable", sans-serif;
+        color: var(--text-primary, #1a1a1a);
+      }
+      .thumb {
+        position: absolute;
+        inset: 0;
+        width: 1280px;
+        height: 720px;
+        background: radial-gradient(
+          ellipse 70% 60% at 50% 45%,
+          #fcf9f0 0%,
+          #f7f2e6 60%,
+          #ede7d7 100%
+        );
+        overflow: hidden;
+      }
+
+      /* ─── ledger frame ─────────────── */
+      .ledger {
+        position: absolute;
+        left: 32px;
+        right: 32px;
+        top: 32px;
+        bottom: 32px;
+        border: 1px solid rgba(26, 26, 26, 0.1);
+        pointer-events: none;
+      }
+      .ledger::before,
+      .ledger::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: rgba(26, 26, 26, 0.07);
+      }
+      .ledger::before {
+        top: 88px;
+      }
+      .ledger::after {
+        bottom: 88px;
+      }
+
+      .edge {
+        position: absolute;
+        font-family: "Pretendard Variable", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #8b6f47;
+        opacity: 0.75;
+      }
+      .edge.tl {
+        left: 56px;
+        top: 56px;
+      }
+      .edge.tr {
+        right: 56px;
+        top: 56px;
+      }
+      .edge.bl {
+        left: 56px;
+        bottom: 56px;
+      }
+      .edge.br {
+        right: 56px;
+        bottom: 56px;
+      }
+
+      /* ─── top tag · AI 커스텀 에이전트 ─ */
+      .top-tag {
+        position: absolute;
+        left: 96px;
+        top: 110px;
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        font-family: "Pretendard Variable", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #a0522d;
+        padding: 10px 18px;
+        border: 1.5px solid #a0522d;
+        border-radius: 2px;
+        background: #fcf9f0;
+      }
+      .top-tag .seal {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        border: 1.5px solid #a0522d;
+        border-radius: 50%;
+        position: relative;
+      }
+      .top-tag .seal::after {
+        content: "AI";
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-size: 10px;
+        font-weight: 800;
+        color: #a0522d;
+        letter-spacing: 0;
+      }
+
+      /* ─── sub · 프롬프트/외주 ────────── */
+      .sub-stack {
+        position: absolute;
+        left: 96px;
+        top: 178px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-family: "Noto Serif KR", serif;
+        font-size: 26px;
+        font-weight: 500;
+        color: #5c5751;
+        letter-spacing: -0.01em;
+      }
+      .sub-stack .strike {
+        text-decoration: line-through;
+        text-decoration-color: #a0522d;
+        text-decoration-thickness: 2px;
+        color: #888178;
+      }
+
+      /* ─── HERO 헤드라인 ─────────────── */
+      .hero {
+        position: absolute;
+        left: 96px;
+        top: 290px;
+        font-family: "Nanum Myeongjo", "Noto Serif KR", serif;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.025em;
+      }
+      .hero .line1 {
+        display: block;
+        font-size: 96px;
+        color: #1a1a1a;
+      }
+      .hero .line1 .accent {
+        color: #5b7f99; /* slate */
+        font-weight: 800;
+      }
+      .hero .line2 {
+        display: block;
+        margin-top: 12px;
+        font-size: 88px;
+        color: #1a1a1a;
+      }
+      .hero .line2 .dot {
+        color: #a0522d;
+        font-weight: 700;
+        margin: 0 4px;
+      }
+      .hero .line2 .end {
+        color: #a0522d;
+      }
+      .hero .underline {
+        display: inline-block;
+        vertical-align: 2px;
+        width: 100%;
+        height: 6px;
+        background: linear-gradient(
+          90deg,
+          #5b7f99 0%,
+          #5b7f99 60%,
+          transparent 100%
+        );
+        margin-top: 4px;
+      }
+
+      /* ─── 하단 메타 라인 ──────────── */
+      .meta {
+        position: absolute;
+        left: 96px;
+        right: 96px;
+        bottom: 110px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      .meta .rule {
+        flex: 0 0 56px;
+        height: 1px;
+        background: #8b6f47;
+        opacity: 0.55;
+      }
+      .meta .label {
+        font-family: "Nanum Myeongjo", serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #1a1a1a;
+        letter-spacing: -0.01em;
+      }
+      .meta .label .em {
+        color: #a0522d;
+        background: rgba(235, 198, 91, 0.32); /* highlight */
+        padding: 0 6px;
+      }
+      .meta .targets {
+        margin-left: auto;
+        font-family: "Pretendard Variable", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #8b6f47;
+      }
+      .meta .targets span {
+        color: #a0522d;
+      }
+
+      /* ─── 우측 PDF 무료 도장 ──────── */
+      .seal-badge {
+        position: absolute;
+        right: 96px;
+        top: 220px;
+        width: 220px;
+        height: 220px;
+        transform: rotate(-8deg);
+      }
+
+      /* ─── 우측 모형 디바이스 카드 ── */
+      .device-stack {
+        position: absolute;
+        right: 110px;
+        top: 90px;
+        display: flex;
+        gap: 14px;
+        transform: rotate(2deg);
+      }
+      .device {
+        width: 124px;
+        height: 232px;
+        background: #fcf9f0;
+        border: 1.5px solid #1a1a1a;
+        border-radius: 14px;
+        padding: 10px 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        box-shadow: 0 14px 28px -16px rgba(26, 26, 26, 0.35);
+        font-family: "Noto Serif KR", serif;
+      }
+      .device .head {
+        font-size: 11px;
+        font-weight: 700;
+        color: #1a1a1a;
+        letter-spacing: -0.02em;
+        border-bottom: 1px solid rgba(26, 26, 26, 0.15);
+        padding-bottom: 4px;
+      }
+      .device .row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 9px;
+        color: #5c5751;
+        letter-spacing: -0.02em;
+      }
+      .device .row .price {
+        color: #a0522d;
+        font-weight: 700;
+      }
+      .device .row.hot {
+        color: #1a1a1a;
+        font-weight: 700;
+      }
+      .device .row.hot .price {
+        background: rgba(235, 198, 91, 0.4);
+        padding: 0 3px;
+      }
+      .device.b {
+        background: #1a1a1a;
+        color: #f7f2e6;
+      }
+      .device.b .head {
+        color: #f7f2e6;
+        border-bottom-color: rgba(247, 242, 230, 0.2);
+      }
+      .device.b .row {
+        color: #c9c4b8;
+      }
+      .device.b .row .price {
+        color: #ebc65b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="thumb">
+      <div class="ledger"></div>
+
+      <div class="edge tl">DANTE LABS · 2026</div>
+      <div class="edge tr">EP · F&amp;B</div>
+      <div class="edge bl">VOL. 02</div>
+      <div class="edge br">EST. 2024</div>
+
+      <!-- ─ 우측 디바이스 모형 ─ -->
+      <div class="device-stack">
+        <div class="device">
+          <div class="head">오늘의 메뉴</div>
+          <div class="row hot">
+            <span>매콤치즈떡볶이</span><span class="price">5,900</span>
+          </div>
+          <div class="row">
+            <span>국물떡볶이</span><span class="price">4,500</span>
+          </div>
+          <div class="row">
+            <span>라볶이</span><span class="price">5,500</span>
+          </div>
+          <div class="row">
+            <span>모듬튀김</span><span class="price">3,800</span>
+          </div>
+          <div class="row">
+            <span>치즈순대</span><span class="price">6,200</span>
+          </div>
+          <div class="row">
+            <span>김말이튀김</span><span class="price">2,500</span>
+          </div>
+        </div>
+        <div class="device b">
+          <div class="head">CAFÉ · POP</div>
+          <div class="row">
+            <span>아이스 라떼</span><span class="price">4,800</span>
+          </div>
+          <div class="row">
+            <span>크로플 세트</span><span class="price">7,900</span>
+          </div>
+          <div class="row">
+            <span>바닐라 빈</span><span class="price">5,200</span>
+          </div>
+          <div class="row">
+            <span>플랫화이트</span><span class="price">5,000</span>
+          </div>
+          <div class="row">
+            <span>티라미수</span><span class="price">6,500</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─ 우측 PDF 무료 도장 (SVG) ─ -->
+      <svg
+        class="seal-badge"
+        viewBox="0 0 220 220"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <path
+            id="circleArc"
+            d="M 110,110 m -86,0 a 86,86 0 1,1 172,0 a 86,86 0 1,1 -172,0"
+          />
+        </defs>
+        <!-- outer rust ring -->
+        <circle
+          cx="110"
+          cy="110"
+          r="100"
+          fill="none"
+          stroke="#A0522D"
+          stroke-width="3"
+        />
+        <circle
+          cx="110"
+          cy="110"
+          r="92"
+          fill="#FCF9F0"
+          stroke="#A0522D"
+          stroke-width="1.5"
+        />
+        <!-- inner sepia ring -->
+        <circle
+          cx="110"
+          cy="110"
+          r="72"
+          fill="none"
+          stroke="#8B6F47"
+          stroke-width="0.8"
+          opacity="0.6"
+        />
+        <!-- arc text top -->
+        <text
+          font-family="'Pretendard Variable', sans-serif"
+          font-size="11"
+          font-weight="700"
+          letter-spacing="3"
+          fill="#8B6F47"
+        >
+          <textPath href="#circleArc" startOffset="6%">
+            DANTE LABS · EDITORIAL · DOWNLOAD ·
+          </textPath>
+        </text>
+        <!-- center PDF -->
+        <text
+          x="110"
+          y="98"
+          text-anchor="middle"
+          font-family="'Playfair Display', serif"
+          font-size="44"
+          font-weight="800"
+          fill="#A0522D"
+          letter-spacing="2"
+        >
+          PDF
+        </text>
+        <!-- divider -->
+        <line
+          x1="62"
+          y1="110"
+          x2="158"
+          y2="110"
+          stroke="#A0522D"
+          stroke-width="1.2"
+          opacity="0.6"
+        />
+        <!-- 무료 -->
+        <text
+          x="110"
+          y="142"
+          text-anchor="middle"
+          font-family="'Nanum Myeongjo', serif"
+          font-size="32"
+          font-weight="800"
+          fill="#1a1a1a"
+          letter-spacing="6"
+        >
+          무료
+        </text>
+        <!-- decorative diamonds -->
+        <polygon points="20,110 26,104 32,110 26,116" fill="#A0522D" />
+        <polygon points="188,110 194,104 200,110 194,116" fill="#A0522D" />
+      </svg>
+
+      <!-- ─ 텍스트 스택 ─ -->
+      <div class="top-tag">
+        <span class="seal"></span>
+        AI 커스텀 에이전트
+      </div>
+
+      <div class="sub-stack">
+        <div><span class="strike">프롬프트 입력</span> 없이 자동</div>
+        <div><span class="strike">외주 디자인</span> 없이</div>
+      </div>
+
+      <div class="hero">
+        <span class="line1"><span class="accent">1시간</span>이면</span>
+        <span class="line2"
+          >메뉴판<span class="dot">·</span>POP<span class="dot">·</span>릴스
+          <span class="end">끝</span></span
+        >
+      </div>
+
+      <div class="meta">
+        <span class="rule"></span>
+        <span class="label"><span class="em">F&amp;B 업계</span> 전용</span>
+        <span class="targets">식당 · <span>카페</span> · 분식 · 베이커리</span>
+      </div>
+    </div>
+  </body>
+</html>

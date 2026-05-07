@@ -35,15 +35,29 @@
   letter-spacing: -0.01em;
 }
 
-.type-h2 { font: var(--type-h2); }
-.type-h3 { font: var(--type-h3); }
-.type-h4 { font: var(--type-h4); }
+.type-h2 {
+  font: var(--type-h2);
+}
+.type-h3 {
+  font: var(--type-h3);
+}
+.type-h4 {
+  font: var(--type-h4);
+}
 
-.type-body-lg { font: var(--type-body-lg); }
-.type-body    { font: var(--type-body); }
-.type-body-sm { font: var(--type-body-sm); }
+.type-body-lg {
+  font: var(--type-body-lg);
+}
+.type-body {
+  font: var(--type-body);
+}
+.type-body-sm {
+  font: var(--type-body-sm);
+}
 
-.type-caption { font: var(--type-caption); }
+.type-caption {
+  font: var(--type-caption);
+}
 
 .type-button {
   font: var(--type-button);
@@ -53,9 +67,15 @@
 
 /* ─── Responsive · 모바일 축소 (spec §3.3) ─────────────── */
 @media (max-width: 767px) {
-  .type-h1 { font-size: 48px; }
-  .type-h2 { font-size: 32px; }
-  .type-h3 { font-size: 24px; }
+  .type-h1 {
+    font-size: 48px;
+  }
+  .type-h2 {
+    font-size: 32px;
+  }
+  .type-h3 {
+    font-size: 24px;
+  }
   /* body 유지 */
 }
 
