@@ -1,7 +1,32 @@
 import { readFileSync } from 'node:fs';
 
+function stripBalancedAtRules(source: string, atRulePrefix: string): string {
+  let out = '';
+  let i = 0;
+  while (i < source.length) {
+    const idx = source.indexOf(atRulePrefix, i);
+    if (idx === -1) { out += source.slice(i); break; }
+    out += source.slice(i, idx);
+    // find opening brace
+    const braceStart = source.indexOf('{', idx);
+    if (braceStart === -1) { out += source.slice(idx); break; }
+    let depth = 1;
+    let j = braceStart + 1;
+    while (j < source.length && depth > 0) {
+      if (source[j] === '{') depth++;
+      else if (source[j] === '}') depth--;
+      j++;
+    }
+    i = j;
+  }
+  return out;
+}
+
 export function parseCustomProperties(cssPath: string): Map<string, string> {
-  const source = readFileSync(cssPath, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+  let source = readFileSync(cssPath, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+  // Strip @media blocks so conditional overrides (e.g. prefers-reduced-motion)
+  // don't clobber the base :root values during flat parsing.
+  source = stripBalancedAtRules(source, '@media');
   const tokens = new Map<string, string>();
   const declRegex = /--([a-z0-9][a-z0-9-]*)\s*:\s*([^;]+);/gi;
   let match: RegExpExecArray | null;

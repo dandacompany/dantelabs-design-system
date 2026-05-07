@@ -1,0 +1,12 @@
+{
+  "ease": {
+    "page": { "$value": "cubic-bezier(0.32, 0.72, 0, 1)", "$type": "cubicBezier" },
+    "ink":  { "$value": "cubic-bezier(0.16, 1, 0.3, 1)",  "$type": "cubicBezier" },
+    "fold": { "$value": "cubic-bezier(0.7, 0, 0.84, 0)",  "$type": "cubicBezier" }
+  },
+  "duration": {
+    "fast": { "$value": "180ms", "$type": "duration" },
+    "base": { "$value": "280ms", "$type": "duration" },
+    "slow": { "$value": "480ms", "$type": "duration" }
+  }
+}
