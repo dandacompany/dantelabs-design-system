@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>단테랩스 디자인 시스템 v1 · Preview</title>
+  <title>단테랩스 디자인 시스템 v1.1 · Preview</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,5 +95,57 @@
       단테랩스 디자인 시스템 v1.0.0 · 2026-04-24
     </footer>
   </main>
+
+  <!-- ─── v2 토큰 ─── -->
+  <section style="padding: var(--space-8) var(--space-6); border-top: 1px solid var(--border);">
+    <h2 class="type-h2" style="margin-bottom: var(--space-6);">v1.1 · Spacing</h2>
+    <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+      <div style="display:flex; align-items:center; gap: var(--space-4);"><code style="width:120px;">--space-1</code><div style="width: var(--space-1); height: 16px; background: var(--color-rust);"></div><span class="type-meta">4px · xs</span></div>
+      <div style="display:flex; align-items:center; gap: var(--space-4);"><code style="width:120px;">--space-2</code><div style="width: var(--space-2); height: 16px; background: var(--color-rust);"></div><span class="type-meta">8px · sm</span></div>
+      <div style="display:flex; align-items:center; gap: var(--space-4);"><code style="width:120px;">--space-3</code><div style="width: var(--space-3); height: 16px; background: var(--color-rust);"></div><span class="type-meta">12px</span></div>
+      <div style="display:flex; align-items:center; gap: var(--space-4);"><code style="width:120px;">--space-4</code><div style="width: var(--space-4); height: 16px; background: var(--color-rust);"></div><span class="type-meta">16px · md</span></div>
+      <div style="display:flex; align-items:center; gap: var(--space-4);"><code style="width:120px;">--space-5</code><div style="width: var(--space-5); height: 16px; background: var(--color-rust);"></div><span class="type-meta">24px</span></div>
+      <div style="display:flex; align-items:center; gap: var(--space-4);"><code style="width:120px;">--space-6</code><div style="width: var(--space-6); height: 16px; background: var(--color-rust);"></div><span class="type-meta">32px · lg</span></div>
+      <div style="display:flex; align-items:center; gap: var(--space-4);"><code style="width:120px;">--space-7</code><div style="width: var(--space-7); height: 16px; background: var(--color-rust);"></div><span class="type-meta">48px</span></div>
+      <div style="display:flex; align-items:center; gap: var(--space-4);"><code style="width:120px;">--space-8</code><div style="width: var(--space-8); height: 16px; background: var(--color-rust);"></div><span class="type-meta">64px · xl</span></div>
+      <div style="display:flex; align-items:center; gap: var(--space-4);"><code style="width:120px;">--space-9</code><div style="width: var(--space-9); height: 16px; background: var(--color-rust);"></div><span class="type-meta">96px</span></div>
+    </div>
+  </section>
+
+  <section style="padding: var(--space-8) var(--space-6); border-top: 1px solid var(--border);">
+    <h2 class="type-h2" style="margin-bottom: var(--space-6);">v1.1 · Radius</h2>
+    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-4);">
+      <div style="background: var(--bg-surface); padding: var(--space-6); text-align: center; border: 1px solid var(--border-strong); border-radius: var(--radius-none);"><code>--radius-none</code><div class="type-meta">0</div></div>
+      <div style="background: var(--bg-surface); padding: var(--space-6); text-align: center; border: 1px solid var(--border-strong); border-radius: var(--radius-sm);"><code>--radius-sm</code><div class="type-meta">2px</div></div>
+      <div style="background: var(--bg-surface); padding: var(--space-6); text-align: center; border: 1px solid var(--border-strong); border-radius: var(--radius-md);"><code>--radius-md</code><div class="type-meta">4px</div></div>
+      <div style="background: var(--bg-surface); padding: var(--space-6); text-align: center; border: 1px solid var(--border-strong); border-radius: var(--radius-lg);"><code>--radius-lg</code><div class="type-meta">8px</div></div>
+      <div style="background: var(--bg-surface); padding: var(--space-6); text-align: center; border-radius: var(--radius-full);"><code>--radius-full</code><div class="type-meta">9999px</div></div>
+    </div>
+  </section>
+
+  <section style="padding: var(--space-8) var(--space-6); border-top: 1px solid var(--border);">
+    <h2 class="type-h2" style="margin-bottom: var(--space-6);">v1.1 · Shadow</h2>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-7);">
+      <div style="background: var(--bg-surface); padding: var(--space-6); text-align: center; box-shadow: var(--shadow-sm);"><code>--shadow-sm</code></div>
+      <div style="background: var(--bg-surface); padding: var(--space-6); text-align: center; box-shadow: var(--shadow-md);"><code>--shadow-md</code></div>
+      <div style="background: var(--bg-surface); padding: var(--space-6); text-align: center; box-shadow: var(--shadow-lg);"><code>--shadow-lg</code></div>
+      <div style="background: var(--bg-surface); padding: var(--space-6); text-align: center; box-shadow: var(--shadow-xl);"><code>--shadow-xl</code></div>
+    </div>
+  </section>
+
+  <section style="padding: var(--space-8) var(--space-6); border-top: 1px solid var(--border);">
+    <h2 class="type-h2" style="margin-bottom: var(--space-6);">v1.1 · Motion</h2>
+    <p class="type-body-sm" style="margin-bottom: var(--space-4);">호버하면 각 easing으로 미끄러집니다.</p>
+    <style>
+      .motion-track { position: relative; height: 32px; background: var(--bg-subtle); border-radius: var(--radius-sm); margin-bottom: var(--space-2); overflow: hidden; }
+      .motion-ball { position: absolute; top: 4px; left: 4px; width: 24px; height: 24px; background: var(--color-rust); border-radius: var(--radius-sm); transition: left var(--duration-base) var(--ease-page); }
+      .motion-row:hover .motion-ball { left: calc(100% - 28px); }
+      .motion-row.ink .motion-ball { transition-timing-function: var(--ease-ink); }
+      .motion-row.fold .motion-ball { transition-timing-function: var(--ease-fold); }
+    </style>
+    <div class="motion-row"><code>--ease-page</code><div class="motion-track"><div class="motion-ball"></div></div></div>
+    <div class="motion-row ink"><code>--ease-ink</code><div class="motion-track"><div class="motion-ball"></div></div></div>
+    <div class="motion-row fold"><code>--ease-fold</code><div class="motion-track"><div class="motion-ball"></div></div></div>
+  </section>
 </body>
 </html>
