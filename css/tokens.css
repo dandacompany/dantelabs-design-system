@@ -69,4 +69,20 @@
   --type-body-sm: 400 14px/1.5 var(--font-body);
   --type-caption: 500 13px/1.4 var(--font-sans);
   --type-button: 600 14px/1 var(--font-sans);
+
+  /* ─── Spacing ─── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-xs: var(--space-1);
+  --space-sm: var(--space-2);
+  --space-md: var(--space-4);
+  --space-lg: var(--space-6);
+  --space-xl: var(--space-8);
 }
