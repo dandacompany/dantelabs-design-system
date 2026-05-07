@@ -1,7 +1,7 @@
 {
   "name": "dantelabs-design-system",
-  "version": "1.0.0",
-  "description": "단테랩스 디자인 시스템 v1 - 컬러 토큰 + 타이포그래피",
+  "version": "1.1.0",
+  "description": "단테랩스 디자인 시스템 - 컬러·타이포·spacing·radius·shadow·motion 토큰",
   "private": true,
   "scripts": {
     "test": "vitest run",
